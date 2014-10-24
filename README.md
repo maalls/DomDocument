@@ -1,4 +1,4 @@
 DomDocument
 ===========
 
-Handles encoding issues when generating DomDocument.
+DomDocument Factory that handles charset encoding.
