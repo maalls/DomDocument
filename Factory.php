@@ -1,7 +1,6 @@
 <?php
 namespace Maalls\DomDocument;
 
-
 class Factory {
 
   const ERROR_TYPE_CONNECTION = 1;
