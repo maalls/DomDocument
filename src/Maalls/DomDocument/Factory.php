@@ -13,7 +13,7 @@ class Factory {
   
   private $error;
   
-  public function __construct($curlHandler, $logger) {
+  public function __construct($curlHandler = null, $logger = null) {
     
     $this->ch = $curlHandler;
     $this->logger = $logger;
