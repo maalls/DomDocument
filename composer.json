@@ -5,6 +5,13 @@
           "Maalls\\DomDocument" : "src"
       }
   },
+
+  "require": {
+
+    "maalls/charset": "dev-master"
+
+  },
+  
   "suggest": {
     "maalls/curl": "Allow making DomDocument from URL."
   }
