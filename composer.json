@@ -1,0 +1,8 @@
+{
+    "name": "maalls/domdocument",
+    "autoload": {
+        "psr-0" : {
+            "Maalls\\DomDocument" : "src"
+        }
+    }
+}
