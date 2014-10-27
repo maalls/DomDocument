@@ -1,8 +1,11 @@
 {
-    "name": "maalls/domdocument",
-    "autoload": {
-        "psr-0" : {
-            "Maalls\\DomDocument" : "src"
-        }
-    }
+  "name": "maalls/domdocument",
+  "autoload": {
+      "psr-0" : {
+          "Maalls\\DomDocument" : "src"
+      }
+  },
+  "suggest": {
+    "maalls/curl": "Allow making DomDocument from URL."
+  }
 }
