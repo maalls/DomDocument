@@ -6,11 +6,9 @@
       }
   },
 
-  "minimum-stability": "dev",
-
   "require": {
 
-    "maalls/charset": "dev-master"
+    "maalls/charset": "~1.0.0"
 
   },
   
