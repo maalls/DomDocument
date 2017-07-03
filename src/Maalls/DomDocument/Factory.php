@@ -18,6 +18,8 @@ class Factory {
   public function __construct($curlHandler = null, $logger = null) {
     
     $this->ch = $curlHandler ? $curlHandler : new Curl();
+
+    $this->ch->setOptions([CURLOPT_RETURNTRANSFER => true]);
     $this->logger = $logger;
     
   }
@@ -44,7 +46,6 @@ class Factory {
     
     if($code != 200) {
       
-      $this->logger->info("HTTP status : $code.");  
       $this->error = self::ERROR_TYPE_CONNECTION;
       return false;
       
@@ -67,6 +68,7 @@ class Factory {
     
   public function createFromHtml($html, $charset = null, $charset_hint = null, $format = true) {
     
+
     if($format) $html = $this->formatHtml($html, $charset, $charset_hint);
     
     if(!$html) {
@@ -77,7 +79,7 @@ class Factory {
     }
     else {
     
-      $doc = new DOMDocument("1.0", "utf-8");
+      $doc = new \DOMDocument("1.0", "utf-8");
       
       if(@$doc->loadHtml($html)) {
         
@@ -99,8 +101,9 @@ class Factory {
   
   public function formatHtml($html, $charset = null, $charset_hint = null) {
     
+    
     $html = $this->toUTF8($html, $charset, $charset_hint);
-          
+    
     $tidy = new \Tidy();
     $config = array("hide-comments" => true);
     $tidy->parseString($html, $config, 'UTF8');
@@ -177,6 +180,13 @@ class Factory {
     
     return $this->error;
     
+  }
+
+  public function log($msg, $level = "info")
+  {
+
+    if($this->logger) $this->logger->log($msg, $level);
+
   }
   
   
