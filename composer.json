@@ -7,7 +7,7 @@
   },
 
   "require": {
-
+    "maalls/curl": "~1.0",
     "maalls/charset": "~1.0.0"
 
   },
