@@ -101,7 +101,7 @@ class Factory {
     
     $html = $this->toUTF8($html, $charset, $charset_hint);
           
-    $tidy = new Tidy();
+    $tidy = new \Tidy();
     $config = array("hide-comments" => true);
     $tidy->parseString($html, $config, 'UTF8');
     $tidy->cleanRepair();
