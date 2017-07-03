@@ -1,8 +1,8 @@
 <?php
 namespace Maalls\DomDocument;
 
-use Maalls\Charset;
-use Maalls\Curl;
+use Maalls\Charset\Charset;
+use Maalls\Curl\Curl;
 
 class Factory {
 
