@@ -1,6 +1,8 @@
 <?php
 namespace Maalls\DomDocument;
 
+use Maalls\Charset;
+use Maalls\Curl;
 
 class Factory {
 
@@ -15,7 +17,7 @@ class Factory {
   
   public function __construct($curlHandler = null, $logger = null) {
     
-    $this->ch = $curlHandler;
+    $this->ch = $curlHandler ? $curlHandler : new Curl();
     $this->logger = $logger;
     
   }
@@ -130,14 +132,14 @@ class Factory {
 
   private function detectCharsetFromCurl($curl) {
     
-    $charsetDetector = new CharsetDetector("", $curl->getInfo(CURLINFO_CONTENT_TYPE));
+    $charsetDetector = new Charset("", $curl->getInfo(CURLINFO_CONTENT_TYPE));
     return $charsetDetector->getCharset();
     
   }
   
   private function detectCharsetFromHtml($html, $charset_hint = null) {
     
-    $charsetDetector = new CharsetDetector($html);
+    $charsetDetector = new Charset($html);
     return $charsetDetector->getCharset();
         
   }
