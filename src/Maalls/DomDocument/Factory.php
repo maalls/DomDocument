@@ -17,9 +17,7 @@ class Factory {
   
   public function __construct($curlHandler = null, $logger = null) {
     
-    $this->ch = $curlHandler ? $curlHandler : new Curl();
-
-    $this->ch->setOptions([CURLOPT_RETURNTRANSFER => true]);
+    $this->setCurlHandler($curlHandler ? $curlHandler : new Curl());
     $this->logger = $logger;
     
   }
@@ -33,7 +31,8 @@ class Factory {
   public function setCurlHandler($ch) {
   
     $this->ch = $ch;
-    
+    $this->ch->setOptions([CURLOPT_RETURNTRANSFER => true]);
+
   }
   
   public function createFromUrl($url, $charset = null, $charset_hint = null) {
