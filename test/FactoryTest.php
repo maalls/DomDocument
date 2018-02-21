@@ -31,9 +31,13 @@ class FactoryTest extends \PHPUnit\Framework\TestCase  {
         foreach($nodes as $node) {
 
             $this->assertEquals("h1", $node->nodeName);
-            $this->assertEquals("TODO: make a website ;)", $node->nodeValue);
+            $this->assertEquals("MAALLS", $node->nodeValue);
 
         }
+
+        $dom = $factory->createFromUrl("http://toto.com");
+
+        $this->assertNotEquals(false, $dom);
 
 
     }

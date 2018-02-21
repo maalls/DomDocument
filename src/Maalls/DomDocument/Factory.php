@@ -40,6 +40,7 @@ class Factory {
     if(!$this->ch) throw new ErrorException("Curl Handler required.");
     
     $this->ch->setOption(CURLOPT_URL,$url);
+    $this->ch->setOption(CURLOPT_FOLLOWLOCATION, true);
     $this->ch->execute();
     $code = $this->ch->getInfo(CURLINFO_HTTP_CODE);
     
