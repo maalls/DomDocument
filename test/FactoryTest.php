@@ -17,7 +17,7 @@ class FactoryTest extends \PHPUnit\Framework\TestCase  {
 
     public function testCreateFromUrl()
     {
-        $factory = new Factory(null, new LogTest());
+        $factory = new Factory();
         
         $dom = $factory->createFromUrl("http://maalls.net");
 
@@ -42,16 +42,5 @@ class FactoryTest extends \PHPUnit\Framework\TestCase  {
 
     }
 
-
-}
-
-class LogTest {
-
-    public function log($msg, $level = "info")
-    {
-
-        var_dump($level . " : " . $msg);
-
-    }
 
 }
